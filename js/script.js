@@ -26,14 +26,30 @@ async function fetchMovies() {
 
 function renderMovies(movies){
     const cardElm = document.querySelector("#movieContainer")
-
     let data = movies.results
+
+        
+    // let poster = movies.poster_path
+    // let title = movies.title
+    // let rating = movies.vote_average
+    // let rating_count = movies.vote_count
+    // let year = movies.release_date.split("-")[2]
 
     cardElm.innerHTML = data.map((movie, index) => 
         `
         <div class="card">
-            <h3 class="title">${movie.title}</h3>
-            <img class="image" src="https://image.tmdb.org/t/p/original${movie.poster_path}">
+        
+            <div class="img-container">
+                <img class="image" src="https://image.tmdb.org/t/p/original${movie.poster_path}">
+            </div>
+
+            <div class="context-container">
+                <p>⭐️ ${movie.vote_average} (${movie.vote_count})</p>
+                <h3 class="title">${index + 1}. ${movie.title}</h3>
+                <p>${movie.release_date.split("-")[2]}</p>
+                <button class="wishlist-button">+ wishlist</button>
+            </div>
+
         </div>
         `
     )
