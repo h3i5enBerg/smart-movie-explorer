@@ -4,59 +4,118 @@
 }
 
 
-#movieContainer{
-    height: 100%;
-    width: 100%;
-    border: 2px solid red;
-    padding: 10px;
+#movieContainer {
     display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+    padding: 20px;
 }
 
 /* ****************************************************************************************************************************** */
 
-.card {
-    width: 220px;
-    height: 370px;
-    /* border: 2px solid lightcyan; */
-    padding: 4px;
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+
+    width: 0;  
+    min-width: 0; 
+    background: rgba(0,0,0,0.85);
+    color: white;
+
     overflow: hidden;
-    border-radius: 25px;
-    box-shadow: 3px 3px 5px red, -1px -1px 5px blue;
+
+    display: flex;
+    align-items: center;
+    padding: 10px;
+
+    transition: width 0.3s ease;
 }
 
-.image-container{
+.card:hover .overlay {
+    opacity: 1;
+    width: 200px;   
+}
+
+.card {
+    width: 220px;
+    border-radius: 20px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card:hover .overlay {
+    width: 100%;   
+}
+
+.image-container {
     width: 100%;
+    height: 300px;
 }
 
 .image {
     width: 100%;
-    height: 250px;
+    height: 100%;
     object-fit: cover;
 }
 
-.context-container{
-    display: flex;
-    flex-direction: column;
+.content-container {
+    padding: 12px;
 }
 
-.title{
-    color: #000000DE;
-}
-
-p{
-    font-family: Arial, Helvetica, sans-serif;
-    color: #0000008A;
-}
-
-.wishlist-button{
-    color: #0E63BE;
-    font-family: Arial, Helvetica, sans-serif;
+.title {
+    font-size: 16px;
     font-weight: bold;
-    border: none;
-    border-radius: 40px;
-    background-color: #00000014;
+    margin: 5px 0;
+}
+
+.rating {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+.para{
+    font-size: 14px;
+    color: gray;
+    margin-bottom: 10px;
+}
+
+.description {
+    font-size: 13px;
+    line-height: 1.4;
+    color: white;
+}
+
+.description {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.card:hover .description {
+    opacity: 1;
+}
+
+.wishlist-button {
+    width: 100%;
     padding: 10px;
-    width: 80%;
+    border: none;
+    border-radius: 20px;
+    background: #eee;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.wishlist-button:hover {
+    background: #ddd;
 }
 
 /* ****************************************************************************************************************************** */

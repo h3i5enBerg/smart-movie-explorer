@@ -35,24 +35,36 @@ function renderMovies(movies){
     // let rating_count = movies.vote_count
     // let year = movies.release_date.split("-")[2]
 
-    cardElm.innerHTML = data.map((movie, index) => 
-        `
-        <div class="card">
+cardElm.innerHTML = data.map((movie, index) => {
+  const img = "https://image.tmdb.org/t/p/w500" + movie.poster_path;
+
+  return `
+    <div class="card">
+      
+      <div class="image-container">
+        <img class="image" src="${img}" />
+      </div>
+
+      <div class="content-container">
         
-            <div class="img-container">
-                <img class="image" src="https://image.tmdb.org/t/p/original${movie.poster_path}">
-            </div>
-
-            <div class="context-container">
-                <p>⭐️ ${movie.vote_average} (${movie.vote_count})</p>
-                <h3 class="title">${index + 1}. ${movie.title}</h3>
-                <p>${movie.release_date.split("-")[2]}</p>
-                <button class="wishlist-button">+ wishlist</button>
-            </div>
-
+        <div class="rating">
+          ⭐ ${movie.vote_average.toFixed(1)} 
+          <span>(${movie.vote_count})</span>
         </div>
-        `
-    )
+
+        <h3 class="title">${index + 1}. ${movie.title}</h3>
+
+        <p class="para">
+          ${movie.release_date?.split("-")[0]} • 2h 30m
+        </p>
+
+        <button class="wishlist-button">+ wishlist</button>
+
+      </div>
+
+    </div>
+  `;
+}).join("");
 
 }
 
