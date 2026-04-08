@@ -149,4 +149,25 @@ function renderMovies(movies) {
 
 }
 
+
+const themeToggleBtn = document.getElementById("themeToggleBtn");
+if (themeToggleBtn) {
+  if (localStorage.getItem("theme") === "dark") {
+    document.body.classList.add("dark-mode");
+    themeToggleBtn.innerText = "☀️";
+  }
+
+  themeToggleBtn.addEventListener("click", () => {
+    document.body.classList.toggle("dark-mode");
+    
+    if (document.body.classList.contains("dark-mode")) {
+      localStorage.setItem("theme", "dark");
+      themeToggleBtn.innerText = "☀️";
+    } else {
+      localStorage.setItem("theme", "light");
+      themeToggleBtn.innerText = "🌙";
+    }
+  });
+}
+
 fetchMovies()
