@@ -3,26 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Movie Explorer</title>
     <link rel="stylesheet" href="./css/style.css?v=2">
 </head>
 <body>
-    <h1>Testing</h1>
-    <input type="text" id="searchbox" placeholder="search movies...">
-    <button id="searchbtn">🔍</button>
-    <button id="themeToggleBtn">🌙</button>
-    <select id="sortDropdown" name="sort">
-        <option value="default">Sort Options...</option>
-        <option value="rating">Rating (High to Low)</option>
-        <option value="rating-asc">Rating (Low to High)</option>
-        <option value="alphabetical">Alphabetical (A-Z)</option>
-        <option value="alphabetical-desc">Alphabetical (Z-A)</option>
-    </select>
-    <select id="filterDropdown" name="filter">
-        <option value="all">All Ratings</option>
-        <option value="7">Above 7</option>
-        <option value="8">Above 8</option>
-    </select>
+    <header class="header">
+        <h1>Movie Explorer</h1>
+        <div class="search-container">
+            <input type="text" id="searchbox" placeholder="search movies...">
+            <button id="searchbtn">🔍</button>
+        </div>
+        <div class="controls-wrapper">
+            <select id="sortDropdown" name="sort">
+                <option value="default">Sort Options...</option>
+                <option value="rating">Rating (High to Low)</option>
+                <option value="rating-asc">Rating (Low to High)</option>
+                <option value="alphabetical">Alphabetical (A-Z)</option>
+                <option value="alphabetical-desc">Alphabetical (Z-A)</option>
+            </select>
+            <select id="filterDropdown" name="filter">
+                <option value="all">All Ratings</option>
+                <option value="7">Above 7</option>
+                <option value="8">Above 8</option>
+            </select>
+            <button id="themeToggleBtn">🌙</button>
+            <button class="auth-btn login-btn">Login</button>
+            <button class="auth-btn signup-btn">Sign Up</button>
+        </div>
+    </header>
 
     <div id="movieContainer">
         <!-- <div class="card">

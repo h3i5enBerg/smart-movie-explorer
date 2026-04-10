@@ -61,12 +61,12 @@ async function performSearch(query) {
   }
 }
 
-// Search as they type (Debounced)
+
 inputSearch.addEventListener("input", debounce((e) => {
   performSearch(e.target.value.trim());
 }, 500));
 
-// Search explicitly on button click
+
 searchbutton.addEventListener("click", () => {
   performSearch(inputSearch.value.trim());
 });
